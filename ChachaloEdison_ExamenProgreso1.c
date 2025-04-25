@@ -82,7 +82,8 @@ int main(int argc, char *argv[])
                 tpuntos += partidos[contP];
             } while (contP < 4);
 
-            promedio [i] = tpuntos / 4;
+            promedio[i] = tpuntos / 4;
+            printf("\nSu promedio es: %.2f\n", promedio[i]);
 
         } while (!partido_valido);
 
@@ -94,23 +95,27 @@ int main(int argc, char *argv[])
                 {
                     aux_partido = partidos[i];
                     partidos[i] = partidos[j];
-                    partidos [j] = aux_partido;
+                    partidos[j] = aux_partido;
 
                     for (int k = 0; k < 30; k++)
                     {
                         aux_nombre[k] = jugador[i][k];
                         jugador[i][k] = jugador[j][k];
-                        jugador[j][k] = axu_nombre[k];
+                        jugador[j][k] = aux_nombre[k];
                     }
-                    
                 }
-                
             }
-            
         }
-        
+    
+    }
 
-        
+    printf("\n== PODIO ==\n");
+    for (int i = 0; i < 5; i++)
+    {
+        printf("#\t\tNombre\t\tPromedioPts\n");
+        printf("%d",i+1,jugador[i],promedio[i]);
+    }
+    
 
     return 0;
 }
