@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     int len, val;
     int nombre_valido, partido_valido;
     int contP = 0;
-    float tpuntos = 0;
+    float tpuntos;
     char aux_nombre[30];
     float aux_partido;
     printf("\n==JUGADOR DEL CAMPEONATO==\n");
@@ -60,8 +60,11 @@ int main(int argc, char *argv[])
         contP=0;
         do
         {
+            tpuntos = 0;
             partido_valido = 1;
+            
             do
+            
             {
                 printf("Ingrese los puntos del partido %d: ", contP + 1);
                 val = scanf("%f", &partidos[contP]);
@@ -82,7 +85,6 @@ int main(int argc, char *argv[])
                 tpuntos += partidos[contP];
             } while (contP < 4);
 
-            
 
         } while (!partido_valido);
         promedio[i] = tpuntos / 4;
